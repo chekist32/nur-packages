@@ -4,10 +4,18 @@ let
   litecoinSharedConfig = {
     stdenv = pkgs.gcc14Stdenv;
     boost = pkgs.boost183;
-    miniupnpc =
-      (import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/nixos-22.11.tar.gz";
-      }) { }).miniupnpc;
+    miniupnpc = pkgs.miniupnpc.overrideAttrs (oldAttrs: rec {
+      version = "2.2.2";
+      src = pkgs.fetchFromGitHub {
+        owner = "miniupnp";
+        repo = "miniupnp";
+        tag = "miniupnpc_${pkgs.lib.replaceStrings [ "." ] [ "_" ] version}";
+        hash = "sha256-4v62pQUedlPFXsCZmC2aMGDKfDVFBx5HK+CWLTi8TOg=";
+      };
+      patches = [ ];
+      postInstall = "";
+      doInstallCheck = false;
+    });
   };
 
   litecoinQt5Config = {
