@@ -87,4 +87,12 @@ stdenv.mkDerivation (finalAttrs: {
   doChecks = true;
 
   enableParallelBuilding = true;
+
+  meta = with lib; {
+    description = "Peer-to-peer electronic cash system (Litecoin)";
+    homepage = "https://litecoin.org/";
+    mainProgram = if withGui then "litecoin-qt" else "litecoin-cli";
+    license = licenses.mit;
+    platforms = platforms.linux;
+  };
 })
