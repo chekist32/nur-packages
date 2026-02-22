@@ -61,6 +61,8 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - name: Nix Config
       run: nix config show
+    - name: Configure netrc test
+      run: echo "machine git.uncleched.com login oauth2 password ${{ secrets.FORGEJO_TOKEN }}" | sudo tee -a /etc/nix/netrc
     - name: Check evaluation
       run: |
         nix-env -f . -qa \* --meta --xml \
