@@ -59,6 +59,8 @@ jobs:
         name: ${{ matrix.cachixName }}
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - name: Nix Config
+      run: nix config show
     - name: Check evaluation
       run: |
         nix-env -f . -qa \* --meta --xml \
