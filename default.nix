@@ -13,7 +13,7 @@
 {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
-  modules = import ./modules; # NixOS modules
+  modules = import ./modules { inherit pkgs; }; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
   # pkgs
