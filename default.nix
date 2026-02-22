@@ -13,9 +13,10 @@
 {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
-  modules = import ./modules { inherit pkgs; }; # NixOS modules
+  modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
   # pkgs
   inherit (import ./pkgs/litecoin { inherit pkgs; }) litecoin litecoin-cli;
+  inherit (import ./pkgs/ccra { inherit pkgs; }) ccra;
 }
