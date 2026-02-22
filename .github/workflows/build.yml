@@ -63,10 +63,8 @@ jobs:
       run: nix config show
     - name: Configure netrc test
       run: echo "machine git.uncleched.com login oauth2 password ${{ secrets.FORGEJO_TOKEN }}" | sudo tee -a /etc/nix/netrc
-    - name: Show netrc
-      run: |
-        sudo cat /etc/nix/netrc
-        sudo ls -la /etc/nix/netrc
+    - name: Configure git credentials test
+      run: git config --global url."https://oauth2:${{ secrets.FORGEJO_TOKEN }}@git.uncleched.com/".insteadOf "https://git.uncleched.com/"
     - name: Check evaluation
       run: |
         nix-env -f . -qa \* --meta --xml \
