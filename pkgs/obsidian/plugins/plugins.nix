@@ -72,4 +72,13 @@
     stylesCssSha256 = "sha256-7nk30r5QZTqJzLMK5fBXKyNQfVt/EyjQBScaNjB1v9g=";
     description = "Offers controls for adjusting theme, plugin, and snippet CSS variables.";
   };
+  card-board = mkObsidianPlugin {
+    name = "card-board";
+    version = "0.7.9";
+    repo = "https://github.com/roovo/obsidian-card-board";
+    mainJsSha256 = "sha256-DsqxMp5MGgV+a5515zQcy7w8nih81pClbAHfamwT4jQ=";
+    manifestSha256 = "sha256-5A1WYJH3qfpqdUrchBNP+offz7ItZmqKTBH0MeeVdw8=";
+    stylesCssSha256 = "sha256-h6KEBb0SQeXe/ObQVzComl8tFSkdbXEB0VD/9TZxvag=";
+    description = "Display markdown tasks on kanban style boards.";
+  };
 }

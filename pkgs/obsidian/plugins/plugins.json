@@ -30,5 +30,9 @@
   {
     "repo": "https://github.com/obsidian-community/obsidian-style-settings",
     "version": "1.0.9"
+  },
+  {
+    "repo": "https://github.com/roovo/obsidian-card-board",
+    "version": "0.7.9"
   }
 ]
