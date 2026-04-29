@@ -18,4 +18,5 @@
 
   # pkgs
   inherit (import ./pkgs/litecoin { inherit pkgs; }) litecoin litecoin-cli;
+  inherit (import ./pkgs/obsidian { inherit pkgs; }) obsidian-plugins;
 }
